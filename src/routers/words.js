@@ -27,7 +27,7 @@ wordsRouter.get('/:diff', async (req, res) => {
     })
 });
 
-wordsRouter.get('/diffs', async (req, res) => {
+wordsRouter.get('/', async (req, res) => {
     res.json({
         diffs: getDiffs()
     })
