@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 const port = 3000;
 
-app.get('/', (req, res) => res.send(''));
+app.get('/', (req, res) => res.json({ message: 'Hello World!' }));
 
 app.use('/words', wordsRouter);
 
