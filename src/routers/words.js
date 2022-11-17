@@ -23,8 +23,6 @@ wordsRouter.get('/:diff', async (req, res) => {
         const randomIndex = Math.floor(Math.random() * wordsArr.length)
         const word = wordsArr[randomIndex]
 
-        console.log(word)
-
         res.json({
             word: {
                 word: encode(word),
