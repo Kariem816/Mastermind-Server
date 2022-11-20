@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "cache": "node temp/cache.js",
-    "build": "yarn && yarn cache"
+    "cache-words": "node temp/cache.js",
+    "build": "yarn && yarn cache-words"
   },
   "repository": {
     "type": "git",
