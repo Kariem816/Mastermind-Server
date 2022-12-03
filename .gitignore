@@ -128,4 +128,5 @@ dist
 yarn.lock
 
 
-src/data/cache/*
+src/data/cache/
+*.zip
