@@ -6,9 +6,12 @@ function setStartTime(_req, res, next) {
 }
 
 function setTime(_req, res) {
+    const response = res.locals.response
+    const encoding = res.locals.encoding || "no encoding"
     try {
         res.json({
-            data: { ...res.locals.response },
+            data: typeof response === Object ? { ...response } : response,
+            encoding: encoding,
             time: formatTime((Date.now() - res.locals.startTime) / 1000)
         })
     } catch (err) {

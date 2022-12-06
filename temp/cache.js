@@ -1,30 +1,21 @@
 const fs = require('fs');
 const path = require('path');
-const { sortObjByValues } = require('../src/utils/sortObject');
+const calculateDiffs = require('../src/helpers/calculateDiffs');
 
 const getNo = () => {
-    const diffsNo = {};
+    const sortedDiffsNo = calculateDiffs('words');
 
-    const pathToWords = path.join(__dirname, '../src/data/words');
-    const diffsNames = fs.readdirSync(pathToWords);
+    const pathToCache = path.join(__dirname, '../src/data/cache');
+    const pathToNums = pathToCache + '/words.json';
 
-    diffsNames.forEach(diff => {
-        const wordsFile = fs.readFileSync(path.join(pathToWords, diff), 'utf8');
-        const wordsObj = JSON.parse(wordsFile);
-        const wordsArr = Object.keys(wordsObj);
-        diffsNo[diff.split('.')[0]] = wordsArr.length;
+    if (!fs.existsSync(pathToCache)) {
+        fs.mkdirSync(pathToCache, { recursive: true });
+    }
+
+    fs.writeFile(pathToNums, JSON.stringify(sortedDiffsNo), function (err) {
+        if (err) throw err;
+        console.log('Cache file was created successfully.');
     });
-
-    const sortedDiffsNo = sortObjByValues(diffsNo);
-
-    console.log(diffsNames);
-    console.log(diffsNo);
-    console.log(sortedDiffsNo);
-    // F:\Programming\Web Development\Backend\Mastermind-Server\src\data\cache\words.json
-    const pathToNums = path.join(__dirname, '../src/data/cache/words.json');
-    fs.writeFileSync(pathToNums, "");
-    fs.writeFileSync(pathToNums, JSON.stringify(sortedDiffsNo));
-    // return no;
 }
 
 getNo();
