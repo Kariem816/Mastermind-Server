@@ -12,16 +12,13 @@ function calculateDiffs(category) {
         const wordsFile = fs.readFileSync(path.join(pathToWords, diff), 'utf8');
         const wordsObj = JSON.parse(wordsFile);
         const wordsArr = Object.keys(wordsObj);
-        diffsNo[diff.split('.')[0]] = wordsArr.length;
+        diffsNo[diff.split('.')[1]] = wordsArr.length;
     });
-
-    const sortedDiffsNo = sortObjByValues(diffsNo);
 
     console.log(diffsNames);
     console.log(diffsNo);
-    console.log(sortedDiffsNo);
 
-    return sortedDiffsNo;
+    return diffsNo;
 }
 
 module.exports = calculateDiffs;

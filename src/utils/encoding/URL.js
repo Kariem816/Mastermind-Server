@@ -1,13 +1,9 @@
-function encode() {
-    var obj = document.getElementById('dencoder');
-    var unencoded = obj.value;
-    obj.value = encodeURIComponent(unencoded).replace(/'/g, "%27").replace(/"/g, "%22");
+function encode(data) {
+    return encodeURIComponent(data).replace(/'/g, "%27").replace(/"/g, "%22");
 }
 
-function decode() {
-    var obj = document.getElementById('dencoder');
-    var encoded = obj.value;
-    obj.value = decodeURIComponent(encoded.replace(/\+/g, " "));
+function decode(data) {
+    return decodeURIComponent(data.replace(/\+/g, " "));
 }
 
 exports.encode = encode;

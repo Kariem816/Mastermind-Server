@@ -1,40 +1,38 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const { encode } = require('../utils/Codec');
 const { getDiffs } = require('../helpers/getDiffs');
+const { getWordByDiff } = require('../controllers/getWordByDiff');
+const { getWordByLength } = require('../controllers/getWordByLength');
+const { lengthToDiff } = require('../helpers/lengthToDiff');
+const { useEncoding } = require('../middleware/useEncoding');
 
 const wordsRouter = express.Router();
 
-wordsRouter.get('/:diff', async (req, res, next) => {
-    const { diff } = req.params;
-    const { encoding } = req.query;
+wordsRouter.get('/get', useEncoding, async (req, res, next) => {
+    const { diff, encoding, length } = req.query;
 
     try {
-        if (!diff) {
+        if (!diff && !length) {
             throw new Error('No difficulty provided');
         }
 
-        if (!encoding) {
-            throw new Error('No encoding provided');
+        let response
+
+        if (diff && !length)
+            response = getWordByDiff(diff)
+        else if (!diff && length)
+            response = getWordByLength(length)
+        else if (lengthToDiff(length) === diff) {
+            response = getWordByLength(length)
+        } else {
+            throw new Error("Length and Difficulity don't match")
         }
 
-        const pathToWords = path.join(__dirname, `../data/words`, `${diff}.json`);
-        const wordsFile = fs.readFileSync(pathToWords, 'utf8')
-        const wordsObj = JSON.parse(wordsFile);
-        const wordsArr = Object.keys(wordsObj)
-        const randomIndex = Math.floor(Math.random() * wordsArr.length)
-        const word = wordsArr[randomIndex]
-
-        const response = {
-            word: word,
-            difficulity: diff,
-            length: word.length,
-            diffs: getDiffs("words")
-        };
+        if (!response) {
+            throw new Error('No words with this length were found')
+        }
 
         res.locals.response = encode(JSON.stringify(response), encoding);
-        res.locals.encoding = encoding || 'base64';
 
         next();
     } catch (err) {
@@ -42,19 +40,15 @@ wordsRouter.get('/:diff', async (req, res, next) => {
     }
 });
 
-wordsRouter.get('/', async (req, res, next) => {
-    let { encoding } = req.query;
+wordsRouter.get('/', useEncoding, async (req, res, next) => {
     try {
-        if (!encoding) {
-            // throw new Error('No encoding provided');
-            encoding = "base64"
-        }
+        const { encoding } = req.query;
+
         const response = {
             diffs: getDiffs("words")
         }
 
-        res.locals.response = encode(JSON.stringify(response), 'base64');
-        res.locals.encoding = encoding;
+        res.locals.response = encode(JSON.stringify(response), encoding);
 
         next();
     } catch (err) {

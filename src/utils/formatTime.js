@@ -9,7 +9,10 @@ function formatTime(time) {
     if (seconds) text.push(`${seconds}s`)
     if (milliseconds) text.push(`${milliseconds}ms`)
 
-    return text.join(' ');
+    if (text.length)
+        return text.join(' ');
+    else
+        return 'less than 1ms'
 }
 
 exports.formatTime = formatTime;
