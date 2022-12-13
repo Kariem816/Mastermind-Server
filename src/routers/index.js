@@ -3,6 +3,8 @@ const { wordsRouter } = require('./words');
 
 const router = express.Router();
 
+router.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!, try /api/words' }));
+
 router.use('/words', wordsRouter);
 
 router.get('/*', async (_req, res, next) => {

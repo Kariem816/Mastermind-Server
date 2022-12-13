@@ -8,7 +8,7 @@ app.use(cors());
 app.use(setStartTime);
 const port = 3000;
 
-app.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!' }));
+app.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!, go to /api' }));
 
 app.use('/api', indexRouter);
 
