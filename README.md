@@ -52,6 +52,8 @@ To install the api on your local machine, follow the steps below:
 
 - If you are using the deployed server, the base URL is `https://bumble-mastermind-api.onrender.com/api/words`
 
+- Or you can use the client version [link](https://mastermind-bumble.netlify.app/)
+
 #### Generic Responses
 
 - Generic Successful Response
