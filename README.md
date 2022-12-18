@@ -8,6 +8,18 @@
 
 - [Documentation](#documentation)
 
+  - [API](#api)
+
+    - [Base URL](#base-url)
+
+    - [Generic Responses](#generic-responses)
+
+    - [Endpoints](#endpoints)
+
+    - [Query Parameters](#query-parameters)
+
+  - [Lengths to difficulity mapping](#lengths-to-difficulity-mapping)
+
 ---
 
 ## Installation
@@ -48,9 +60,9 @@ To install the api on your local machine, follow the steps below:
 
 #### Base URL
 
-- If you are running the server locally, the base URL is `http://localhost:3000/api/words`
+- If you are running the server locally, the [base URL](http://localhost:3000/api/words) is `http://localhost:3000/api/words`
 
-- If you are using the deployed server, the base URL is `https://bumble-mastermind-api.onrender.com/api/words`
+- If you are using the deployed server, the [base URL](https://bumble-mastermind-api.onrender.com/api/words) is `https://bumble-mastermind-api.onrender.com/api/words`
 
 #### Generic Responses
 
@@ -105,7 +117,9 @@ To install the api on your local machine, follow the steps below:
 
     - Allowed Query Parameters
 
-    1. `encoding`
+        1. `encoding`
+
+---
 
 2. `GET /get`
 
@@ -149,19 +163,25 @@ To install the api on your local machine, follow the steps below:
 
     - Allowed Query Parameters
 
-    1. `diff`
+    1. [`diff`](#diff)
 
-    2. `encoding`
+    2. [`encoding`](#encoding)
 
-    3. `length`
+    3. [`length`](#length)
 
 #### Query Parameters
 
-1. `encoding` - The encoding of the words to be returned. The encodings are `base64`, `url`. In case of encoding, the data object will be a string. You need to decode the string and parse it to get the data of words. If encoding is not specified, the default encoding is `no encoding`.
+##### `encoding`
 
-2. `diff` - The difficulity of the words to be returned. The difficulities are `kids`, `easy`, `medium`, `hard`, `impossible`. You have to specify the difficulity if you are not specifying the length[^1].
+- The encoding of the words to be returned. The encodings are `base64`, `url`. In case of encoding, the data object will be a string. You need to decode the string and parse it to get the data of words. If encoding is not specified, the default encoding is `no encoding`.
 
-3. `length` - The length of the words to be returned. You have to specify the length if you are not specifying the difficulity[^1].
+##### `diff`
+
+- The difficulity of the words to be returned. The difficulities are `kids`, `easy`, `medium`, `hard`, `impossible`. You have to specify the difficulity if you are not specifying the length[^1].
+
+##### `length`
+
+- The length of the words to be returned. You have to specify the length if you are not specifying the difficulity[^1].
 
 [^1]: If both `diff` and `length` are not specified, you will recieve an error. If both `diff` and `length` are specified, they have to match otherwise you will recieve an error.
 
