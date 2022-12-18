@@ -4,6 +4,10 @@
 
 ## Table of Contents
 
+- [Description](#description)
+
+- [Dependencies](#dependencies)
+
 - [Installation](#installation)
 
 - [Documentation](#documentation)
@@ -16,9 +20,27 @@
 
     - [Endpoints](#endpoints)
 
-    - [Query Parameters](#query-parameters)
+  - [Game](#game)
 
-  - [Lengths to difficulity mapping](#lengths-to-difficulity-mapping)
+  - [Contributing](#contributing)
+
+---
+
+## Description
+
+A simple Express server that returns a random word from a list of words. The words are grouped into difficulities. The difficulities are `kids`, `easy`, `medium`, `hard`, `impossible`. The difficulities are ordered from easiest to hardest. The API was built to be used with [WordMastermind](#game) but can be used for any purpose. You can also use the API to generate random words for your own projects as it supports getting words by length.
+
+---
+
+## Dependencies
+
+- [Express](https://expressjs.com/)
+
+- [Node.js](https://nodejs.org/en/)
+
+- [cors](https://www.npmjs.com/package/cors)
+
+- [english-words](https://github.com/dwyl/english-words) by [dwyl](https://github.com/dwyl)
 
 ---
 
@@ -72,7 +94,7 @@ To install the api on your local machine, follow the steps below:
 
     {
         "data": "data",
-        "encoding": "base64" | "url" | "no encoding",
+        "encoding": ["base64", "url", "no encoding"],
         "time": "time taken to generate the data"
     }
 
@@ -118,8 +140,6 @@ To install the api on your local machine, follow the steps below:
     - Allowed Query Parameters
 
         1. `encoding`
-
----
 
 2. `GET /get`
 
@@ -183,7 +203,7 @@ To install the api on your local machine, follow the steps below:
 
 - The length of the words to be returned. You have to specify the length if you are not specifying the difficulity[^1].
 
-[^1]: If both `diff` and `length` are not specified, you will recieve an error. If both `diff` and `length` are specified, they have to match otherwise you will recieve an error.
+---
 
 ### Lengths to difficulity mapping
 
@@ -194,3 +214,21 @@ To install the api on your local machine, follow the steps below:
 |   5    | medium      |
 |   6    | hard        |
 |  >= 7  | impossible  |
+
+---
+
+### Game
+
+Word Mastermind is a game where you have to guess a word. The word is chosen randomly from a list of words based on chosen difficulity. You can try the game yourself [here](https://mastermind-bumble.netlify.app/)[^2]. For more documentation, See [this](https://github.com/Kariem816/WordMastermind-Bumble/tree/main/README.md) . For more information about the original boardgame, you can read [this](https://en.wikipedia.org/wiki/Mastermind_(board_game)).
+
+---
+
+## Contributing
+
+If you want to contribute to this project, you can do so by forking the repository and making a pull request. Alternatively, you can open an issue if you find a bug or have a suggestion or you can send an email to `kariem816@gmail.com`.
+
+---
+
+[^1]: If both `diff` and `length` are not specified, you will recieve an error. If both `diff` and `length` are specified, they have to match otherwise you will recieve an error.
+
+[^2]: If the game doesn't load, try refreshing the page. The game is hosted on netlify and it sometimes takes a while to load.
