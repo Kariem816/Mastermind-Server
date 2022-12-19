@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const { sortObjByValues } = require('../utils/sortObject');
 
 function calculateDiffs(category) {
     const diffsNo = {};

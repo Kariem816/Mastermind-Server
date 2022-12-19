@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const { getDiffs } = require('../helpers/getDiffs');
+const { getDiffs } = require('../../helpers/getDiffs');
 
 function getWordByDiff(diff) {
-    const pathToData = path.join(__dirname, `../data/words`);
+    const pathToData = path.join(__dirname, `../../data/words`);
     const diffsNames = fs.readdirSync(pathToData);
 
     let pathToWords;
@@ -11,7 +11,7 @@ function getWordByDiff(diff) {
     for (i = 0; i < diffsNames.length; i++) {
         const diffName = diffsNames[i]
         if (diffName.match(diff))
-            pathToWords = path.join(__dirname, `../data/words`, `${diffName}`);
+            pathToWords = path.join(pathToData, diffName);
     }
 
     const wordsFile = fs.readFileSync(pathToWords, 'utf8')

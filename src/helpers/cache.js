@@ -1,11 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const calculateDiffs = require('../src/helpers/calculateDiffs');
+const calculateDiffs = require('./calculateDiffs');
 
 const getNo = () => {
     const sortedDiffsNo = calculateDiffs('words');
 
-    const pathToCache = path.join(__dirname, '../src/data/cache');
+    const pathToCache = path.join(__dirname, '../data/cache');
     const pathToNums = pathToCache + '/words.json';
 
     if (!fs.existsSync(pathToCache)) {

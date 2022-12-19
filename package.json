@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "cache-words": "node temp/cache.js",
+    "cache-words": "node src/helpers/cache.js",
     "build": "yarn && yarn cache-words"
   },
   "repository": {
