@@ -1,0 +1,28 @@
+{
+    "bumble": {
+        "imgLink": "\"devs/bumble.jpg\"",
+        "firstName": "Kareem",
+        "lastName": "ElSawah",
+        "job": "Full Stack Developer",
+        "email": "kariem816@gmail.com",
+        "website": "mastermind-bumble.netlify.app",
+        "about": "I am a frontend developer with a particular interest in making things simple and automating daily tasks. I try to keep up with security and best practices, and am always looking for new things to learn.",
+        "interests": "Food expert. Music scholar. Reader. Internet fanatic. Bacon buff. Entrepreneur. Travel geek. Pop culture ninja. Coffee fanatic.",
+        "tw": {
+            "user": "bumble816",
+            "link": "https://twitter.com/Bumble816"
+        },
+        "fb": {
+            "user": "Kariem Mustafa",
+            "link": "https://www.facebook.com/kemo.antimo.7731/"
+        },
+        "gh": {
+            "user": "Kareem ElSawah",
+            "link": "https://github.com/Kariem816"
+        },
+        "linkedin": {
+            "user": "Kareem (Mostafa) ElSawah",
+            "link": "https://www.linkedin.com/in/kareem-elsawah-00581a23b/"
+        }
+    }
+}

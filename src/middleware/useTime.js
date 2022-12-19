@@ -7,6 +7,9 @@ function setStartTime(_req, res, next) {
 
 function setTime(_req, res) {
     const response = res.locals.response
+    if (!response) {
+        return res.status(404).json({ err: "Not Found" });
+    }
     const encoding = res.locals.encoding || "no encoding"
     try {
         res.json({

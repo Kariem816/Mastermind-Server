@@ -1,8 +1,8 @@
 const express = require('express');
 const { encode } = require('../utils/Codec');
 const { getDiffs } = require('../helpers/getDiffs');
-const { getWordByDiff } = require('../controllers/getWordByDiff');
-const { getWordByLength } = require('../controllers/getWordByLength');
+const { getWordByDiff } = require('../controllers/words/getWordByDiff');
+const { getWordByLength } = require('../controllers/words/getWordByLength');
 const { lengthToDiff } = require('../helpers/lengthToDiff');
 const { useEncoding } = require('../middleware/useEncoding');
 
