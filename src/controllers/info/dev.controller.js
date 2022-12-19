@@ -14,7 +14,15 @@ function devController(dev = null) {
             return { err: 'Not Found' };
         }
     }
-    return devsObj;
+    const devs = Object.keys(devsObj);
+    const data = devs.map(dev => ({
+        [dev]: {
+            firstName: devsObj[dev].firstName,
+            lastName: devsObj[dev].lastName,
+            imgLink: devsObj[dev].imgLink,
+        }
+    }))
+    return data;
 }
 
 exports.devController = devController;

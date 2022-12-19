@@ -6,7 +6,7 @@ const { gamesController } = require('../controllers/info/games.controller');
 const infoRouter = express.Router();
 
 infoRouter.use(cors({
-    origin: 'https://mastermind-bumble.netlify.app/',
+    origin: 'https://mastermind-bumble.netlify.app',
 }))
 
 infoRouter.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!, try /dev' }));
