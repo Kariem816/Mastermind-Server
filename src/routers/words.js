@@ -1,24 +1,21 @@
 const express = require('express');
-const { encode } = require('../utils/Codec');
 const { getDiffs } = require('../helpers/getDiffs');
 const { getWordByDiff } = require('../controllers/words/getWordByDiff');
 const { getWordByLength } = require('../controllers/words/getWordByLength');
+const { getRandomWord } = require('../controllers/words/getRandomWord');
 const { lengthToDiff } = require('../helpers/lengthToDiff');
-const { useEncoding } = require('../middleware/useEncoding');
 
 const wordsRouter = express.Router();
 
-wordsRouter.get('/get', useEncoding, async (req, res, next) => {
-    const { diff, encoding, length } = req.query;
+wordsRouter.get('/get', async (req, res, next) => {
+    const { diff, length } = req.query;
 
     try {
-        if (!diff && !length) {
-            throw new Error('No difficulty provided');
-        }
-
         let response
 
-        if (diff && !length)
+        if (!diff && !length)
+            response = getRandomWord()
+        else if (diff && !length)
             response = getWordByDiff(diff)
         else if (!diff && length)
             response = getWordByLength(length)
@@ -29,10 +26,10 @@ wordsRouter.get('/get', useEncoding, async (req, res, next) => {
         }
 
         if (!response) {
-            throw new Error('No words with this length were found')
+            throw new Error('No words with this length or with this difficulity were found')
         }
 
-        res.locals.response = encode(JSON.stringify(response), encoding);
+        res.locals.response = response;
 
         next();
     } catch (err) {
@@ -40,15 +37,13 @@ wordsRouter.get('/get', useEncoding, async (req, res, next) => {
     }
 });
 
-wordsRouter.get('/', useEncoding, async (req, res, next) => {
+wordsRouter.get('/', async (_req, res, next) => {
     try {
-        const { encoding } = req.query;
-
         const response = {
             diffs: getDiffs("words")
         }
 
-        res.locals.response = encode(JSON.stringify(response), encoding);
+        res.locals.response = response;
 
         next();
     } catch (err) {
