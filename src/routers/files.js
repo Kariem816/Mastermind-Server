@@ -1,11 +1,11 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const { fileController } = require('../controllers/files/files.controller');
 
 const fileRouter = express.Router();
 
 fileRouter.use(cors({
-    origin: 'https://mastermind-bumble.netlify.app/',
+    origin: 'https://mastermind-bumble.netlify.app',
 }))
 
 fileRouter.get('/get', async (req, res) => {

@@ -221,7 +221,7 @@ To install the api on your local machine, follow the steps below:
 
 ### Game
 
-Word Mastermind is a game where you have to guess a word. The word is chosen randomly from a list of words based on chosen difficulity. You can try the game yourself [here](https://mastermind-bumble.netlify.app/)[^2]. For more documentation, See [this](https://github.com/Kariem816/WordMastermind-Bumble/tree/main/README.md) . For more information about the original boardgame, you can read [this](https://en.wikipedia.org/wiki/Mastermind_(board_game)).
+Word Mastermind is a game where you have to guess a word. The word is chosen randomly from a list of words based on chosen difficulity. You can try the game yourself [here](https://mastermind-bumble.netlify.app/)[^2]. For more information about the original boardgame, you can read [this](https://en.wikipedia.org/wiki/Mastermind_(board_game)).
 
 ---
 

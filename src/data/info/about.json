@@ -1,8 +1,10 @@
 {
     "bumble": {
         "imgLink": "\"devs/bumble.jpg\"",
+        "smallImgLink": "\"devs/bumble-small.jpg\"",
         "firstName": "Kareem",
         "lastName": "ElSawah",
+        "role": "Only Developer",
         "job": "Full Stack Developer",
         "email": "kariem816@gmail.com",
         "website": "mastermind-bumble.netlify.app",
