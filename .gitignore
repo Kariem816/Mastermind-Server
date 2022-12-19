@@ -127,6 +127,6 @@ dist
 .pnp.*
 yarn.lock
 
-
+temp
 src/data/cache/
 *.zip

@@ -17,7 +17,7 @@ infoRouter.get('/devs', (req, res, next) => {
     try {
         if (dev) {
             const data = devController(dev);
-            if (data.err) throw new Error("Not Found");
+            if (data.err) throw new Error(data.errMsg);
             res.locals.response = data;
         } else {
             res.locals.response = devController();
@@ -33,7 +33,7 @@ infoRouter.get('/devs', (req, res, next) => {
 
 infoRouter.get('/games', async (_req, res, next) => {
     try {
-        res.locals.response = gamesController();;
+        res.locals.response = gamesController();
         next();
     } catch (err) {
         res.status(400).json({ err: "Bad Request", errMsg: err.message })

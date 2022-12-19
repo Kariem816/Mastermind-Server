@@ -31,6 +31,7 @@ function getWordByLength(len) {
         word: word,
         difficulity: diff,
         length: word.length,
+        random: false,
         diffs: getDiffs("words")
     })
 }

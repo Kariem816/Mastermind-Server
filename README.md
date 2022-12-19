@@ -199,11 +199,11 @@ To install the api on your local machine, follow the steps below:
 
 ##### `diff`
 
-- The difficulity of the words to be returned. The difficulities are `kids`, `easy`, `medium`, `hard`, `impossible`. You have to specify the difficulity if you are not specifying the length[^1].
+- The difficulity of the words to be returned. The difficulities are `kids`, `easy`, `medium`, `hard`, `impossible`[^1].
 
 ##### `length`
 
-- The length of the words to be returned. You have to specify the length if you are not specifying the difficulity[^1].
+- The length of the words to be returned[^1].
 
 ---
 
@@ -227,10 +227,10 @@ Word Mastermind is a game where you have to guess a word. The word is chosen ran
 
 ## Contributing
 
-If you want to contribute to this project, you can do so by forking the repository and making a pull request. Alternatively, you can open an issue if you find a bug or have a suggestion or you can send an email to `kariem816@gmail.com`.
+If you want to contribute to this project, you can do so by forking the repository and making a pull request. Alternatively, you can open an issue or send an email to `kariem816@gmail.com` if you find a bug or have a suggestion .
 
 ---
 
-[^1]: If both `diff` and `length` are not specified, you will recieve an error. If both `diff` and `length` are specified, they have to match otherwise you will recieve an error.
+[^1]: If both `diff` and `length` are not specified, you will recieve a random word. If both `diff` and `length` are specified, they have to match otherwise you will recieve an error.
 
 [^2]: If the game doesn't load, try refreshing the page. The game is hosted on netlify and it sometimes takes a while to load.

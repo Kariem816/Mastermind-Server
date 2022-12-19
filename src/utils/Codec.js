@@ -9,6 +9,7 @@ function encode(data, encoding = 'null') {
             return encodeURL(data);
         case 'no':
         case 'null':
+        case 'no encoding':
             return JSON.parse(data);
     }
 }
@@ -21,6 +22,7 @@ function decode(data, encoding = 'null') {
             return decodeURL(data);
         case 'no':
         case 'null':
+        case 'no encoding':
             return JSON.parse(data);
     }
 }
