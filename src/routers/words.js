@@ -7,6 +7,11 @@ const { lengthToDiff } = require('../helpers/lengthToDiff');
 
 const wordsRouter = express.Router();
 
+wordsRouter.get('/', async (_req, res, next) => {
+    res.locals.response = { msg: 'Use /get to get random words or use length or diff query to get a specific random word. Use /getdiffs to get available difficulities.' };
+    next();
+});
+
 wordsRouter.get('/get', async (req, res, next) => {
     const { diff, length } = req.query;
 
@@ -37,7 +42,7 @@ wordsRouter.get('/get', async (req, res, next) => {
     }
 });
 
-wordsRouter.get('/', async (_req, res, next) => {
+wordsRouter.get('/getdiffs', async (_req, res, next) => {
     try {
         const response = {
             diffs: getDiffs("words")
