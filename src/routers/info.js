@@ -1,12 +1,13 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
+require('dotenv').config();
 const { devController } = require('../controllers/info/dev.controller');
 const { gamesController } = require('../controllers/info/games.controller');
 
 const infoRouter = express.Router();
 
 infoRouter.use(cors({
-    origin: 'https://mastermind-bumble.netlify.app',
+    origin: process.env.FRONTEND_URL,
 }))
 
 infoRouter.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!, try /dev' }));

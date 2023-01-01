@@ -1,5 +1,6 @@
 const express = require('express');
 const { wordsRouter } = require('./words');
+const { mastermindRouter } = require('./mastermind');
 const { infoRouter } = require('./info');
 const { fileRouter } = require('./files');
 
@@ -8,6 +9,8 @@ const router = express.Router();
 router.get('/', (_req, res) => res.json({ message: 'Wrong Route, Buddy!, try /api/words' }));
 
 router.use('/words', wordsRouter);
+
+router.use('/mastermind', mastermindRouter);
 
 router.use('/info', infoRouter);
 
